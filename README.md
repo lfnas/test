@@ -22,22 +22,24 @@ As a result of several researches in the scope of public health, it is observed 
 ### 1. Introdução
 
 No Brasil, o Ministério da Saúde dispõe de uma base de dados que reúne informações sobre diferentes variáveis que podem ter influência sobre os partos prematuros e o baixo peso de recém-nascidos, a referida base é proveniente do Sistema de Informação sobre Nascidos Vivos (SINASC), que é um Sistema que facilita a visualização das evoluções de séries históricas. Os dados, por sua vez, são coletadas pelos entes da federação (Estados e Municípios), e consolidados neste sistema nacional que compreende uma das maiores referências sobre os nascimentos do país.
+
 O presente estudo utilizará, somente um fragmento da base integral, isto é, referente ao ano de 2019 dos nascimentos ocorridos no Estado do Rio de Janeiro. Em detalhes, o dataset possui dados anonimizados, disponível no site (https://datasus.saude.gov.br/transferencia-de-arquivos/), com 48 features e mais de 200 mil registros, demonstrando-se uma base significativa para diversos testes e aplicações, não somente para previsão de pesos.
+
 Ressalta-se a aplicabilidade da base para o reconhecimento social, epidemiológico, geográfico etc. ou seja, elevando a disponibilidade no desenvolvimento de modelos analíticos e preditivos, possibilitando as autoridades nacionais e regionais de saúde pública na promoções de polítcias públicas.
 
 ### 2. Modelagem
 
-#### 2.1. Análise Exploratória
+##### 2.1. Análise Exploratória
 
-#### 2.2. Vizualização dos Dados
+##### 2.2. Vizualização dos Dados
 
-#### 2.3. Avaliação da Variável “Peso”
+##### 2.3. Avaliação da Variável “Peso”
 
-#### 2.4. Tratamento de Missing Valeus
+##### 2.4. Tratamento de Missing Valeus
 
-#### 2.5. Feature Selection
+##### 2.5. Feature Selection
 
-#### 2.6. Modelos Utilizados
+##### 2.6. Modelos Utilizados
 
 ### 3. Resultados
 
