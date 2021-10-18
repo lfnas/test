@@ -29,21 +29,32 @@ Ressalta-se a aplicabilidade da base para o reconhecimento social, epidemiológi
 
 ### 2. Modelagem
 
-##### 2.1. Análise Exploratória
+Inicialmente, destaca-se o grande volume de dados estruturados trabalhados com o dataset, bem como as diversas relações entre variáveis presente, conforme informado na introdução a base é bem ampla e dispõe de dados quantitativos e qualitativos de diversas naturezas.
 
-##### 2.2. Vizualização dos Dados
+A abordagem é voltada ao foco do problema, isto é, a previsão de pesos de récem-nascidos, considerando a correlação, através das funções e visualizações foi realizados os procedimentos de tratamento dos dados. Em especial, divide-se em algumas fases que podem ser melhor observadas:
 
-##### 2.3. Avaliação da Variável “Peso”
-
-##### 2.4. Tratamento de Missing Valeus
-
-##### 2.5. Feature Selection
-
-##### 2.6. Modelos Utilizados
+  * Análise Exploratória
+  
+  * Vizualização dos Dados
+  
+  * Avaliação da Variável “Peso”
+  
+  * Tratamento de Missing Valeus
+  
+  * Feature Selection
+  
+  * Modelos Utilizados
 
 ### 3. Resultados
 
+O modelo baseado em Random Forest foi aquele que obteve maior acurácia dentre os testado, chegando a 81.19% com 6 árvores e 28 features e um job, sendo uma modelo enxuto, pois em nenhuma outra configuração com mais árvores ele conseguiu ser finalizado, retornando várias vezes ao início com reinicialização do Kernel.
+
+Outros modelos também não atingiram o esperado retornando pouco ou quase nada em aspectos de acurácia na predição, sendo incluídos para fins comparativos, conforme a tabela do último código.
+
+
 ### 4. Conclusões
+
+
 ---
 
 Matrícula: 192.671.165
