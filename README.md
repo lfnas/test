@@ -33,17 +33,26 @@ Inicialmente, destaca-se o grande volume de dados estruturados trabalhados com o
 
 A abordagem é voltada ao foco do problema, isto é, a previsão de pesos de recém-nascidos, considerando a correlação, através das funções e visualizações foram realizados os procedimentos de tratamento dos dados. Em especial, divide-se em algumas fases que podem ser melhor observadas:
 
-  * Análise Exploratória
+  * *Análise Exploratória / Visualização dos Dados*
   
-  * Visualização dos Dados
+Preliminarmente, foi possível observar a dimensão da amostra, o número de casos, o conjunto de variáveis, sua denominação, tipo e estados de atributos, dentre outras características. Para uma abordagem ampla foram identificados as features iniciais, bem como os tipos listados de cada feature, além do quantitativo total de cada tipo primitivo, observando sua importância futura.
   
-  * Avaliação da Variável “Peso”
+  * *Avaliação da Variável “PESO”*
+ 
+Após as avaliações iniciais, buscou-se observar a distribuição dos dados e sua relação com valores extremos ou outliers. Nota-se que no conjunto de dados havia valores destoantes, que podem ser derivados de fatores como mal preenchimento ou erro nas unidades de medida. Foram observados cerca de 220 mil casos, sendo que o peso médio dos recém-nascidos é de cerca de 3 kg, com valores extremos abaixo de 2 kg e acima de 4,5 kg, aproximadamente, com crianças do sexo masculino apresentando a tendência de terem maior peso que crianças do sexo feminino. As mães possuem média de idade de cerca de 27 anos, com idade mínima de 10 anos e máxima de 99 anos (com grande possibilidade de corresponder a um erro no conjunto de dados).
+
+Ademais, foi identificado ampla sobreposição para os valores de peso entre os tipos de parto, sendo que há bem menos casos em que o tipo de parto foi ignorado. Não havendo uma correlação direta entre a idade das mães e o peso das crianças, tal qual para o número de consultas e o peso, todavia, essa variável de desfecho indica tendências quando o número de semanas de gestação.
+
+
+  * *Tratamento de Missing Valeus / Feature Selection*
+
+Foi elaborado um script para facilitar a análise e observação dos valores faltantes, em síntese houve o retorno do total de missings de cada feature, bem como o percentual dentro de cada uma. Em tempo, foi gerado um gráfico para visualização do percentual de missing values de cada features, a atribuição feita no código é uma linha de “corte” de 50%, contudo visando preservar os atributos que podem conter uma boa correlação com o “PESO”, foi aplicado no modelo a seguir um corte de 45%, isto é, exclusão das features que estão sobre este percentual.
+
+Ademais, foi programada a substituição dos atributos numéricos pela mediana, medida central que expressa melhor assertividade do que a média, por exemplo, principalmente em casos com maior possibilidade de variação numérica, para os atributos categóricos foi substituído pela moda dos valores existentes.
+
+Considerando o PESO, nossa variável de desfecho foi avaliado e tratado o índice de correlação com as demais. A partir disso, foram excluídas as variáveis com valores de baixa correlação, a exemplo de código de malformação congênita, série escolar da mãe, idade do pai, data da última menstruação,código do país de residência, trabalho de parto induzido ou não induzido, possibilidade de nascimento assistido, número de filhos mortos, escolaridade da mãe, cesáreo anterior ao trabalho de parto, dentre outras.
   
-  * Tratamento de Missing Valeus
-  
-  * Feature Selection
-  
-  * Modelos Utilizados
+  * *Modelos Utilizados*
 
 ### 3. Resultados
 
