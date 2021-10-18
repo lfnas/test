@@ -35,7 +35,7 @@ A abordagem é voltada ao foco do problema, isto é, a previsão de pesos de ré
 
   * Análise Exploratória
   
-  * Vizualização dos Dados
+  * Visualização dos Dados
   
   * Avaliação da Variável “Peso”
   
