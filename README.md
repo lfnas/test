@@ -21,17 +21,17 @@ As a result of several researches in the scope of public health, it is observed 
 
 ### 1. Introdução
 
-No Brasil, o Ministério da Saúde dispõe de uma base de dados que reúne informações sobre diferentes variáveis que podem ter influência sobre os partos prematuros e o baixo peso de recém-nascidos, a referida base é proveniente do Sistema de Informação sobre Nascidos Vivos (SINASC), que é um Sistema que facilita a visualização das evoluções de séries históricas. Os dados, por sua vez, são coletadas pelos entes da federação (Estados e Municípios), e consolidados neste sistema nacional que compreende uma das maiores referências sobre os nascimentos do país.
+No Brasil, o Ministério da Saúde dispõe de uma base de dados que reúne informações sobre diferentes variáveis que podem ter influência sobre os partos prematuros e o baixo peso de recém-nascidos, a referida base é proveniente do Sistema de Informação sobre Nascidos Vivos (SINASC), que é um Sistema que facilita a visualização das evoluções de séries históricas. Os dados, por sua vez são coletados pelos entes da federação (Estados e Municípios), e consolidados neste sistema nacional que compreende uma das maiores referências sobre os nascimentos do país.
 
-O presente estudo utilizará, somente um fragmento da base integral, isto é, referente ao ano de 2019 dos nascimentos ocorridos no Estado do Rio de Janeiro. Em detalhes, o dataset possui dados anonimizados, disponível no site (https://datasus.saude.gov.br/transferencia-de-arquivos/), com 48 features e mais de 200 mil registros, demonstrando-se uma base significativa para diversos testes e aplicações, não somente para previsão de pesos.
+O presente estudo utilizará, somente, um fragmento da base integral, isto é, referente ao ano de 2019 dos nascimentos ocorridos no Estado do Rio de Janeiro. Em detalhes, o dataset possui dados anonimizados, disponível no site (https://datasus.saude.gov.br/transferencia-de-arquivos/), com 48 features e mais de 200 mil registros, demonstrando-se uma base significativa para diversos testes e aplicações, não somente para previsão de pesos.
 
-Ressalta-se a aplicabilidade da base para o reconhecimento social, epidemiológico, geográfico etc. ou seja, elevando a disponibilidade no desenvolvimento de modelos analíticos e preditivos, possibilitando as autoridades nacionais e regionais de saúde pública na promoções de polítcias públicas.
+Ressalta-se a aplicabilidade da base para o reconhecimento social, epidemiológico, geográfico etc. ou seja, elevando a disponibilidade no desenvolvimento de modelos analíticos e preditivos, possibilitando às autoridades nacionais e regionais de saúde pública a promoções de políticas públicas.
 
 ### 2. Modelagem
 
 Inicialmente, destaca-se o grande volume de dados estruturados trabalhados com o dataset, bem como as diversas relações entre variáveis presente, conforme informado na introdução a base é bem ampla e dispõe de dados quantitativos e qualitativos de diversas naturezas.
 
-A abordagem é voltada ao foco do problema, isto é, a previsão de pesos de récem-nascidos, considerando a correlação, através das funções e visualizações foi realizados os procedimentos de tratamento dos dados. Em especial, divide-se em algumas fases que podem ser melhor observadas:
+A abordagem é voltada ao foco do problema, isto é, a previsão de pesos de recém-nascidos, considerando a correlação, através das funções e visualizações foram realizados os procedimentos de tratamento dos dados. Em especial, divide-se em algumas fases que podem ser melhor observadas:
 
   * Análise Exploratória
   
@@ -49,7 +49,7 @@ A abordagem é voltada ao foco do problema, isto é, a previsão de pesos de ré
 
 O modelo baseado em Random Forest foi aquele que obteve maior acurácia dentre os testado, chegando a 81.19% com 6 árvores e 28 features e um job, sendo uma modelo enxuto, pois em nenhuma outra configuração com mais árvores ele conseguiu ser finalizado, retornando várias vezes ao início com reinicialização do Kernel.
 
-Outros modelos também não atingiram o esperado retornando pouco ou quase nada em aspectos de acurácia na predição, sendo incluídos para fins comparativos, conforme a tabela do último código.
+Outros modelos também não atingiram o esperado, retornando pouco ou quase nada em aspectos de acurácia na predição, sendo incluídos para fins comparativos, conforme a tabela do último código.
 
 
 ### 4. Conclusões
