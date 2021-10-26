@@ -29,40 +29,61 @@ Ressalta-se a aplicabilidade da base para o reconhecimento social, epidemiológi
 
 ### 2. Modelagem
 
-Inicialmente, destaca-se o grande volume de dados estruturados trabalhados com o dataset, bem como as diversas relações entre variáveis presente, conforme informado na introdução a base é bem ampla e dispõe de dados quantitativos e qualitativos de diversas naturezas.
+Inicialmente, destaca-se o grande volume de dados estruturados trabalhados com o dataset, bem como as diversas relações entre variáveis presentes.  Novamente, ressalta-se que a base é bem ampla e dispõe de dados quantitativos e qualitativos de diversas naturezas.
 
-A abordagem é voltada ao foco do problema, isto é, a previsão de pesos de recém-nascidos, considerando a correlação, através das funções e visualizações foram realizados os procedimentos de tratamento dos dados. Em especial, divide-se em algumas fases que podem ser melhor observadas:
+Inicialmente, em observação as features, pode-se inferir na divisão de alguns grupos, o primeiro de alta correlação (normalmente relacionadas ao desenvolvimento do recém-nascido durante a gestação), média correlação (como influências externas e histórico da mãe) e baixa correlação (anotações burocráticas e fatores sociais de pouca relevância ao objeto).
 
-  * *Análise Exploratória / Visualização dos Dados*
+O modelo proposto é focado no problema, isto é, a previsão de pesos de recém-nascidos, assim é verificado o nível de permanência das features em relação ao objeto ‘PESO’, bem como sua correlação, através das funções e visualizações. Posteriormente, foram realizados os procedimentos de tratamento dos dados, em especial, divide-se em algumas fases que podem ser melhor observadas:
+
+  * *Análise Exploratória *
   
-Preliminarmente, foi possível observar a dimensão da amostra, o número de casos, o conjunto de variáveis, sua denominação, tipo e estados de atributos, dentre outras características. Para uma abordagem ampla foram identificados as features iniciais, bem como os tipos listados de cada feature, além do quantitativo total de cada tipo primitivo, observando sua importância futura.
-  
-  * *Avaliação da Variável “PESO”*
- 
-Após as avaliações iniciais, buscou-se observar a distribuição dos dados e sua relação com valores extremos ou outliers. Nota-se que no conjunto de dados havia valores destoantes, que podem ser derivados de fatores como mal preenchimento ou erro nas unidades de medida. Foram observados cerca de 220 mil casos, sendo que o peso médio dos recém-nascidos é de cerca de 3 kg, com valores extremos abaixo de 2 kg e acima de 4,5 kg, aproximadamente, com crianças do sexo masculino apresentando a tendência de terem maior peso que crianças do sexo feminino. As mães possuem média de idade de cerca de 27 anos, com idade mínima de 10 anos e máxima de 99 anos (com grande possibilidade de corresponder a um erro no conjunto de dados).
+Na avaliação inicial de dimensões e tipos de dados foi observado a composição predominantes de variáveis reais e uma dimensionalidade significativa. Além disso, o número de casos, o conjunto de variáveis, sua denominação, tipo e estados de atributos, dentre outras características.
 
-Ademais, foi identificado ampla sobreposição para os valores de peso entre os tipos de parto, sendo que há bem menos casos em que o tipo de parto foi ignorado. Não havendo uma correlação direta entre a idade das mães e o peso das crianças, tal qual para o número de consultas e o peso, todavia, essa variável de desfecho indica tendências quando o número de semanas de gestação.
+Buscou-se explorar a análise visual dos dados para melhor entendimento das features e suas relações mais próximas com a variável alvo do modelo. Em especial se utilizou das bibliotecas SEABORN e MATPLOTLIB, com os seguintes tipos de gráficos (.countplot, .displot, .boxplo, .lmplot e .hist). Fator que possibilitou a identificação de variáveis com apenas um valor ou sem relação significativa com o objeto, como por exemplo: 'ORIGEM', 'STDNEPIDEM', 'STDNNOVA', 'CODPAISRES', 'TPNASCASSI', 'DTCADASTRO', 'CODMUNNASC'.
 
+Em avaliação especial da variável peso, indetifica-se que o peso médio dos recém-nascidos é de cerca de 3 kg, com valores extremos abaixo de 2 kg e acima de 4,5 kg, aproximadamente, com crianças do sexo masculino apresentando a tendência de terem maior peso que crianças do sexo feminino.
 
-  * *Tratamento de Missing Valeus / Feature Selection*
+Sendo a relação do peso com outras features, também explorada. Em especial, as variáveis SEXO, GESTACAO, TPROBSON, SEMAGESTAC E PARTO. Algumas relações apresentam tendências claras, como a maior incidência de peso elevado em meninos e o baixo peso, com baixas semanas de gestação. Igualmente, para gestações mais longas o peso aumentava até o limite de “40º semana” quando estabilizou no peso médio.
 
-Foi elaborado um script para facilitar a análise e observação dos valores faltantes, em síntese houve o retorno do total de missings de cada feature, bem como o percentual dentro de cada uma. Em tempo, foi gerado um gráfico para visualização do percentual de missing values de cada features, a atribuição feita no código é uma linha de “corte” de 50%, contudo visando preservar os atributos que podem conter uma boa correlação com o “PESO”, foi aplicado no modelo a seguir um corte de 45%, isto é, exclusão das features que estão sobre este percentual.
+Ademais, foi identificado ampla sobreposição para os valores de peso entre os tipos de parto, sendo que há bem menos casos em que o tipo de parto foi ignorado. Não havendo uma correlação direta entre a idade das mães e o peso das crianças, tal qual para o número de consultas e o peso, todavia, essa variável indica tendências quando o número de semanas de gestação.
+
+Partindo para uma avaliação quanto ao índice de correlação das features com a variável PESO. A partir disso, foram excluídas as variáveis com valores de baixa correlação, a exemplo de 'IDANOMAL', 'CONTADOR', 'CODMUNRES', 'RACACORMAE', 'RACACOR', 'ESCMAE', 'ESTCIVMAE', 'DTDECLARAC', 'HORANASC', 'NUMEROLOTE', 'ESCMAE2010', 'DTNASC','APGAR1', 'ESCMAEAGR1',, dentre outras. Além disso, utilizou-se um gráfico (.heatmap) para melhor visualização das correlações.
+
+  * *Pré-Processamento *
+
+Para o tratamento de outliers, foi inicialmente plotado um gráfico (.boxplot), sendo o mesmo utilizado na avaliação isolada da variável PESO. Nesse exemplo, foram identificados uma quantidade significativa de outliers, conforme obtido na função: 
+
+Índices de acurácia e kappa encontrados nos modelos:
+
+| sub           | values 
+| ------------- | -------- 
+| IQR           | 520.00  
+| Upper Bound   | 2764.00  
+| Lower Bound   | 684.00  
+| Sum outliers  | 5223.00
+| % outliers    | 2.51119
+
+Após, foi realizada a exclusão dos mesmos e plotado novo gráfico para visualização das modificações. 
+
+No tratamento de missing values foi elaborado um script para facilitar a análise e observação dos valores, em síntese houve o retorno do total de missings de cada feature, bem como o percentual dentro de cada uma. Em tempo, foi gerado um gráfico de barras simples para visualização do percentual de missing values de cada features, a atribuição feita no código é uma linha de “corte” de 40%, isto é, foram excluídas as features com valores superiores, representada com uma linha horizontal traçada no gráfico.
 
 Ademais, foi programada a substituição dos atributos numéricos pela mediana, medida central que expressa melhor assertividade do que a média, por exemplo, principalmente em casos com maior possibilidade de variação numérica, para os atributos categóricos foi substituído pela moda dos valores existentes.
-
-Considerando o PESO, nossa variável de desfecho foi avaliado e tratado o índice de correlação com as demais. A partir disso, foram excluídas as variáveis com valores de baixa correlação, a exemplo de código de malformação congênita, série escolar da mãe, idade do pai, data da última menstruação,código do país de residência, trabalho de parto induzido ou não induzido, possibilidade de nascimento assistido, número de filhos mortos, escolaridade da mãe, cesáreo anterior ao trabalho de parto, dentre outras.
-  
-  * *Modelos Utilizados*
+Na redução de dimensionalidade foi transformado os atributos com o método (.fit) depois dividindo a base de treino e teste foi aplicado o método PCA na base de treino.
 
 ### 3. Resultados
 
-O modelo baseado em Random Forest foi aquele que obteve maior acurácia dentre os testado, chegando a 81.19% com 6 árvores e 28 features e um job, sendo uma modelo enxuto, pois em nenhuma outra configuração com mais árvores ele conseguiu ser finalizado, retornando várias vezes ao início com reinicialização do Kernel.
+Para previsão do PESO foram utilizados os modelos de Random Forest, Decision Tree, Naive Bayes e Logistic Regression. Os resultados de acurácia do modelo foram os seguintes: 
 
-Outros modelos também não atingiram o esperado, retornando pouco ou quase nada em aspectos de acurácia na predição, sendo incluídos para fins comparativos, conforme a tabela do último código.
-
+| Modelo        | Acurácia 
+| ------------- | -------- 
+| Deep Learning | 99.39%  
+| Decision Tree | 80.30%   
+| Random Forest | 79.34%   
+| Naive Bayes   | 68.18%   
 
 ### 4. Conclusões
 
+O modelo baseado em Random Forest e Decision Tree foram os que obtiveram maior acurácia dentre os testados, chegando a 97.97% com 100 árvores e 29 features. Outros modelos também não atingiram o esperado, retornando pouco ou quase nada em aspectos de acurácia na predição, sendo incluídos para fins comparativos.
 
 ---
 
