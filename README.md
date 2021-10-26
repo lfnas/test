@@ -35,7 +35,7 @@ Inicialmente, em observação as features, pode-se inferir na divisão de alguns
 
 O modelo proposto é focado no problema, isto é, a previsão de pesos de recém-nascidos, assim é verificado o nível de permanência das features em relação ao objeto ‘PESO’, bem como sua correlação, através das funções e visualizações. Posteriormente, foram realizados os procedimentos de tratamento dos dados, em especial, divide-se em algumas fases que podem ser melhor observadas:
 
-  * *Análise Exploratória *
+  * *Análise Exploratória*
   
 Na avaliação inicial de dimensões e tipos de dados foi observado a composição predominantes de variáveis reais e uma dimensionalidade significativa. Além disso, o número de casos, o conjunto de variáveis, sua denominação, tipo e estados de atributos, dentre outras características.
 
@@ -49,7 +49,7 @@ Ademais, foi identificado ampla sobreposição para os valores de peso entre os 
 
 Partindo para uma avaliação quanto ao índice de correlação das features com a variável PESO. A partir disso, foram excluídas as variáveis com valores de baixa correlação, a exemplo de 'IDANOMAL', 'CONTADOR', 'CODMUNRES', 'RACACORMAE', 'RACACOR', 'ESCMAE', 'ESTCIVMAE', 'DTDECLARAC', 'HORANASC', 'NUMEROLOTE', 'ESCMAE2010', 'DTNASC','APGAR1', 'ESCMAEAGR1',, dentre outras. Além disso, utilizou-se um gráfico (.heatmap) para melhor visualização das correlações.
 
-  * *Pré-Processamento *
+  * *Pré-Processamento*
 
 Para o tratamento de outliers, foi inicialmente plotado um gráfico (.boxplot), sendo o mesmo utilizado na avaliação isolada da variável PESO. Nesse exemplo, foram identificados uma quantidade significativa de outliers, conforme obtido na função: 
 
@@ -74,12 +74,12 @@ Na redução de dimensionalidade foi transformado os atributos com o método (.f
 
 Para previsão do PESO foram utilizados os modelos de Random Forest, Decision Tree, Naive Bayes e Logistic Regression. Os resultados de acurácia do modelo foram os seguintes: 
 
-| Modelo        | Acurácia 
-| ------------- | -------- 
-| Deep Learning | 99.39%  
-| Decision Tree | 80.30%   
-| Random Forest | 79.34%   
-| Naive Bayes   | 68.18%   
+| Modelo             | Acurácia 
+| ------------------ | -------- 
+| Random Forest      | 97.97%  
+| Decision Tree      | 97.97%   
+| Logistc Regression | 1.040%   
+| Naive Bayes        | 7.070%   
 
 ### 4. Conclusões
 
